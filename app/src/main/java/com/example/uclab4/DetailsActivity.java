@@ -1,6 +1,7 @@
 package com.example.uclab4;
 
 import android.os.Bundle;
+import androidx.activity.OnBackPressedCallback;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.fragment.app.FragmentManager;
@@ -15,7 +16,8 @@ public class DetailsActivity extends FragmentActivity {
         if (savedInstanceState == null) {
             manager.beginTransaction()
                     .replace(R.id.details_container, new IngredientsFragment())
-                    .commitNow();
+                    .addToBackStack(null)
+                    .commit();
         }
 
         Fragment recipes = manager.findFragmentById(R.id.fragment_container);
@@ -28,5 +30,13 @@ public class DetailsActivity extends FragmentActivity {
         } else if (recipes != null) {
             manager.beginTransaction().remove(recipes).commitNow();
         }
+
+        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
+            @Override
+            public void handleOnBackPressed() {
+                getSupportFragmentManager().popBackStackImmediate();
+                finish();
+            }
+        });
     }
 }
