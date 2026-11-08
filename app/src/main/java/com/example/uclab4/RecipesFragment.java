@@ -36,6 +36,12 @@ public class RecipesFragment extends Fragment {
         recipesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View row, int position, long id) {
+                if (getActivity().findViewById(R.id.details_container) != null) {
+                    IngredientsFragment details = (IngredientsFragment)
+                            getParentFragmentManager().findFragmentById(R.id.details_container);
+                    details.showRecipe(position);
+                    return;
+                }
                 Bundle arguments = new Bundle();
                 arguments.putInt("recipe", position);
                 IngredientsFragment details = new IngredientsFragment();

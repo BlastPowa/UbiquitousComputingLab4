@@ -10,6 +10,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class IngredientsFragment extends Fragment {
+    private int recipePosition;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         return inflater.inflate(R.layout.fragment_ingredients, container, false);
@@ -19,10 +21,20 @@ public class IngredientsFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         int position = getArguments() == null ? 0 : getArguments().getInt("recipe");
+        if (savedInstanceState != null) {
+            position = savedInstanceState.getInt("recipe");
+        }
         showRecipe(position);
     }
 
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("recipe", recipePosition);
+    }
+
     public void showRecipe(int position) {
+        recipePosition = position;
         try {
             JSONObject recipe = RecipeData.loadRecipes(getActivity()).getJSONObject(position);
             TextView nameText = getView().findViewById(R.id.nameText);
