@@ -1,5 +1,6 @@
 package com.example.uclab4;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,13 +43,9 @@ public class RecipesFragment extends Fragment {
                     details.showRecipe(position);
                     return;
                 }
-                Bundle arguments = new Bundle();
-                arguments.putInt("recipe", position);
-                IngredientsFragment details = new IngredientsFragment();
-                details.setArguments(arguments);
-                getParentFragmentManager().beginTransaction()
-                        .replace(R.id.fragment_container, details)
-                        .commit();
+                Intent intent = new Intent(getActivity(), DetailsActivity.class);
+                intent.putExtra("recipe", position);
+                startActivity(intent);
             }
         });
     }

@@ -20,7 +20,7 @@ public class IngredientsFragment extends Fragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        int position = getArguments() == null ? 0 : getArguments().getInt("recipe");
+        int position = getActivity().getIntent().getIntExtra("recipe", 0);
         if (savedInstanceState != null) {
             position = savedInstanceState.getInt("recipe");
         }
