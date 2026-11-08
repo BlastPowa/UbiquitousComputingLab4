@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Pancakes",
+    "ingredients": "100 g flour\n1 egg\n200 ml milk\n1 teaspoon oil",
+    "method": "Mix the flour, egg and milk into a smooth batter. Heat the oil in a frying pan. Pour in a little batter and cook each pancake on both sides until golden."
+  },
+  {
+    "name": "Tomato Pasta",
+    "ingredients": "200 g pasta\n400 g chopped tomatoes\n1 small onion\n1 tablespoon olive oil",
+    "method": "Boil the pasta according to the packet. Chop the onion and soften it in the oil. Add the tomatoes and simmer for 10 minutes. Drain the pasta and mix it with the sauce."
+  },
+  {
+    "name": "Cheese Omelette",
+    "ingredients": "2 eggs\n30 g grated cheese\n1 teaspoon butter",
+    "method": "Beat the eggs. Melt the butter in a frying pan and add the eggs. Cook until almost set, add the cheese, then fold the omelette and cook until the eggs are fully set."
+  },
+  {
+    "name": "Fruit Salad",
+    "ingredients": "1 apple\n1 banana\n1 orange\n100 g grapes",
+    "method": "Wash the apple and grapes. Peel the banana and orange. Cut the fruit into small pieces and mix everything in a bowl."
+  },
+  {
+    "name": "Porridge",
+    "ingredients": "50 g oats\n250 ml milk\n1 teaspoon honey",
+    "method": "Put the oats and milk in a saucepan. Bring to a gentle simmer and stir for about 5 minutes until thick. Pour into a bowl and add the honey."
+  }
+]

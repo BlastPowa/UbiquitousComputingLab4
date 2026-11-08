@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Lab 4 Recipes</string>
+    <string name="recipes_loaded">Loaded %1$d recipes</string>
 </resources>
