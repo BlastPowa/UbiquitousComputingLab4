@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import androidx.fragment.app.Fragment;
@@ -32,5 +33,17 @@ public class RecipesFragment extends Fragment {
 
         ListView recipesList = view.findViewById(R.id.recipesList);
         recipesList.setAdapter(new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, names));
+        recipesList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View row, int position, long id) {
+                Bundle arguments = new Bundle();
+                arguments.putInt("recipe", position);
+                IngredientsFragment details = new IngredientsFragment();
+                details.setArguments(arguments);
+                getParentFragmentManager().beginTransaction()
+                        .replace(R.id.fragment_container, details)
+                        .commit();
+            }
+        });
     }
 }
